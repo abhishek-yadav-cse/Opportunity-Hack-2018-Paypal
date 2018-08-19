@@ -18,8 +18,7 @@ import slider1 from './images/index-slider1.jpg';
 import slider2 from './images/index-slider2.jpg';
 
 
-class filter extends Component {
-
+class danceClass extends Component {
 
   render() {
 
@@ -58,15 +57,7 @@ class filter extends Component {
       <h3>Activities in 95112</h3>
       <div style={{ width: '60%', margin: 'auto', marginTop: '20px', textAlign: 'justify', fontSize: '18px' }}>
           <section class="tiles">
-            <article class="style1">
-              <span class="image">
-                <img src={cycling} alt="cycling" style={{ width: '230px', height: '180px' }} onClick={() => { this.props.history.push("#"); }} />
-              </span>
-              <br></br>
-              <div align="center">
-                <input type="submit" value="Cycling" style={{ fontSize: '20px', color: 'black', fontWeight: 'bold', border: '0', background: 'none' }} onClick={() => { this.props.history.push("#"); }} />
-              </div>
-            </article>
+            
             <article class="style2">
               <span class="image">
                 <img src={dance} alt="dance" style={{ width: '230px', height: '180px' }} onClick={() => { this.props.history.push("#"); }} />
@@ -76,15 +67,7 @@ class filter extends Component {
                 <input type="submit" value="Dance" style={{ fontSize: '20px', color: 'black', fontWeight: 'bold', border: '0', background: 'none' }} onClick={() => { this.props.history.push("#"); }} />
               </div>
             </article>
-            <article class="style2">
-              <span class="image">
-                <img src={soccer} alt="soccer" style={{ width: '230px', height: '180px' }} onClick={() => { this.props.history.push("#"); }} />
-              </span>
-              <br></br>
-              <div align="center">
-                <input type="submit" value="Soccer" style={{ fontSize: '20px', color: 'black', fontWeight: 'bold', border: '0', background: 'none' }} onClick={() => { this.props.history.push("#"); }} />
-              </div>
-            </article>
+            
 
           </section>
         </div>
@@ -95,4 +78,4 @@ class filter extends Component {
         }
       }
 
-export default filter;
+export default danceClass;

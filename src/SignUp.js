@@ -4,6 +4,7 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import AppBar from 'material-ui/AppBar';
 import logo1 from './images/logo1.png';
 import classes from './SignUp.css';
+import { Values } from "redux-form-website-template";
 
 const divStyle = {
   display: 'flex',
@@ -67,6 +68,7 @@ class SignUpForm extends Component {
               </Button>
             </FormGroup>
           </Form>
+          <Values form="simple" />
         </Panel>
       </div>
     )

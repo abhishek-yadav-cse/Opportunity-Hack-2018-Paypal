@@ -16,7 +16,7 @@ import { Redirect } from 'react-router-dom';
 import indexbg from './images/index.jpg';
 import slider1 from './images/index-slider1.jpg';
 import slider2 from './images/index-slider2.jpg';
-
+import { TextField, validator } from 'react-textfield';
 
 import Modal from 'react-modal';
 import filter from './filter.js';
@@ -53,11 +53,15 @@ class Home extends Component {
       email: '',
     };
 
-    this.state = userInfo;
+    this.state = {
+      flag : 0,
+      userInfo
+    };
 
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.submit = this.submit.bind(this);
   }
 
   openModal() {
@@ -72,7 +76,6 @@ class Home extends Component {
   closeModal() {
     this.setState({ modalIsOpen: false });
   }
-
 
 
   // componentDidMount() {
@@ -125,11 +128,20 @@ class Home extends Component {
     this.props.history.replace('/signup');
   }
 
+  submit = () => {
+    
+    this.state.flag = 1;
 
+    console.log("Submit Button!");
+  }
+
+  
   render() {
-    const { isAuthenticated } = this.props;
+    
+    const { isAuthenticated } = this.state.flag;
+    console.log("abc")
     if (isAuthenticated) {
-      return <Redirect to='/url' />;
+      return <Redirect to='/filter' />;
     }
 
     const rightButtons = (
@@ -143,11 +155,8 @@ class Home extends Component {
       </div>
     );
 
-
-
-
     const { fname, lname, email } = this.state;
-
+    const isFlagged = this.state.flag;
 
     return (
       <div className="App">
@@ -164,7 +173,7 @@ class Home extends Component {
           />
         </MuiThemeProvider>
 
-
+      
         <script src="./js/modernizr-2.8.3.min.js"></script>
         <script src="./js/jquery-1.12.0.min.js"></script>
 
@@ -195,7 +204,7 @@ class Home extends Component {
                       {/* Options btn color: .btn-success | .btn-info | .btn-warning | .btn-danger | .btn-primary */}
                       <a href="index.html" className="btn btn-outline-success button-sm"></a>
 
-                      <div className="title__action"><a href={filter} className="btn btn-success" onClick={this.submit}>Search</a></div>
+                      <div className="title__action"><a href="filter" className="btn btn-success" onClick={this.submit}>Search</a></div>
                     </div>
                     {/* .title-01 */}
                   </div>
@@ -210,8 +219,11 @@ class Home extends Component {
             {/* .hero-section__wrap */}
           </section>
           {/* .hero-section */}
+          
         </div>
-
+      
+        
+        
         <div style={{ width: '60%', margin: 'auto', marginTop: '20px', textAlign: 'justify', fontSize: '18px' }}>
           <section class="tiles">
             <article class="style1">
@@ -271,9 +283,6 @@ class Home extends Component {
 
           </section>
         </div>
-
-
-
 
 
 
